@@ -1,7 +1,28 @@
 public class Assignment01Q05 {
     public static int findShortestPath(int[][] m, int i, int j) {
-        // TODO: implement
-        return -1;
+        if (i==j) return 0;
+        int[] dis=new int[m.length];
+        boolean[] vis=new boolean[m.length];
+        int[] queue=new int[m.length];
+        int head=0,tail=0;
+        tail++;
+        queue[tail-1]=i;
+        vis[i]=true;
+        while(head<tail){
+            int cur=queue[head];
+            head++;
+            for(int k=0;k<m.length;k++){
+                if(m[cur][k]==1&&!vis[k]){
+                    vis[k]=true;
+                    dis[k]=dis[cur]+1;
+                    queue[tail++]=k;
+                }
+            }
+        }
+        if (dis[j] == 0) {
+            return -1;
+        }
+        return dis[j];
     }
 
     public static void main(String[] args) {
