@@ -16,7 +16,7 @@ public class Assignment01Q03 {
             t=a;
             a=a+b;
             b=t;
-            if (a % 2 != 0) {
+            if (b % 2 != 0) {
                 numOdd++;
             }
             if (i < x - 1) 
